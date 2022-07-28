@@ -46,8 +46,6 @@ public class CustomAdapter extends ArrayAdapter {
 
         if (currentItem.getGender() == 'M') {
             ivGender.setImageResource(R.drawable.male);
-            String imageUrl = "https://cdn-icons-png.flaticon.com/512/146/146031.png";
-            Picasso.with(parent_context).load(imageUrl).into(ivGender);
         } else {
             ivGender.setImageResource(R.drawable.female);
         }
