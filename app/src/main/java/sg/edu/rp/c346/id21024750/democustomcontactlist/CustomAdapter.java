@@ -8,23 +8,28 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class CustomAdapter extends ArrayAdapter {
+
     Context parent_context;
     int layout_id;
     ArrayList<Contact> contactList;
 
-    public CustomAdapter(Context context, int resource, ArrayList<Contact> objects){
-        super(context,resource,objects);
+    public CustomAdapter(Context context, int resource, ArrayList<Contact> objects) {
+        super(context, resource, objects);
         parent_context = context;
         layout_id = resource;
         contactList = objects;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
-        LayoutInflater inflater = (LayoutInflater) parent_context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        LayoutInflater inflater = (LayoutInflater) parent_context.
+                getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View rowView = inflater.inflate(layout_id, parent, false);
 
@@ -32,20 +37,26 @@ public class CustomAdapter extends ArrayAdapter {
         TextView tvCode = rowView.findViewById(R.id.textViewCountryCode);
         TextView tvNum = rowView.findViewById(R.id.textViewPhoneNum);
         ImageView ivGender = rowView.findViewById(R.id.imageViewGender);
+        ImageView ivFlag = rowView.findViewById(R.id.ivFlag);
 
         Contact currentItem = contactList.get(position);
         tvName.setText(currentItem.getName());
         tvCode.setText("+" + currentItem.getCountryCode());
         tvNum.setText(currentItem.getPhoneNum() + "");
 
-        if (currentItem.getGender() == 'M'){
+        if (currentItem.getGender() == 'M') {
             ivGender.setImageResource(R.drawable.male);
+            String imageUrl = "https://cdn-icons-png.flaticon.com/512/146/146031.png";
+            Picasso.with(parent_context).load(imageUrl).into(ivGender);
         } else {
             ivGender.setImageResource(R.drawable.female);
         }
 
-        return rowView;
+        String imageUrl = "https://cdn.countryflags.com/thumbs/singapore/flag-3d-round-500.png";
+        Picasso.with(parent_context).load(imageUrl).into(ivFlag);
 
+
+        return rowView;
     }
 
 }

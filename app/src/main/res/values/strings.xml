@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Demo Custom Contact List</string>
+    <string name="num">Number</string>
+    <string name="cd">Code</string>
+    <string name="nm">Name</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
 </resources>

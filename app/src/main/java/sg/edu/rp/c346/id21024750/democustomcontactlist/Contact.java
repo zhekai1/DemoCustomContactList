@@ -1,6 +1,9 @@
 package sg.edu.rp.c346.id21024750.democustomcontactlist;
 
-class Contact {
+import java.io.Serializable;
+
+public class Contact implements Serializable {
+
     private String name;
     private int countryCode;
     private int phoneNum;
@@ -17,41 +20,31 @@ class Contact {
         return name;
     }
 
-    public int getCountryCode(){
-        return countryCode;
-    }
-
-    public int getPhoneNum() {
-        return phoneNum;
-    }
-
-    public char getGender(){
-        return gender;
-    }
-
-    public void setName(String Name) {
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public int getCountryCode() {
+        return countryCode;
     }
 
     public void setCountryCode(int countryCode) {
         this.countryCode = countryCode;
     }
 
+    public int getPhoneNum() {
+        return phoneNum;
+    }
+
     public void setPhoneNum(int phoneNum) {
         this.phoneNum = phoneNum;
     }
 
-    public void setGender(char gender) {
-        this.gender = gender;
+    public char getGender() {
+        return gender;
     }
 
-    @Override
-    public String toString() {
-        return "Contact{" +
-                "name='" + name + '\'' +
-                ", countryCode=" + countryCode +
-                ", phoneNum=" + phoneNum +
-                ", gender=" + gender +
-                '}';
+    public void setGender(char gender) {
+        this.gender = gender;
     }
 }
